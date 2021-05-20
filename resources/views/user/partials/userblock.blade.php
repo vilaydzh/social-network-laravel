@@ -1,5 +1,6 @@
 <div class="row">
   <div class="col-sm-2">
+
     <a href="{{ route('profile.index', ['username' => $user->username ]) }}">
       @if ( ! $user->avatar )
         <img src="{{ $user->getAvatarUrl() }}"

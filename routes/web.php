@@ -43,3 +43,12 @@ Route::middleware(['auth', 'verified'])->prefix('wall')->name('wall.')->group(fu
     Route::post('/{id}/reply', 'WallController@postReply')->name('reply');
     Route::get('/{id}/like', 'WallController@getLike')->name('like');
 });
+
+#чат
+Route::get('/chat', 'ChatController@getIndex')
+    ->name('chat.index');
+Route::get('conversation/{userId}', 'MessageController@conversation')
+    ->name('chat.conversation');
+
+Route::post('send-message', 'MessageController@sendMessage')
+    ->name('message.send-message');

@@ -44,9 +44,11 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     # получить имя и фамилию, или имя
-    public function getName() 
+
+
+    public function getName()
     {
-        if ($this->first_name && $this->last_name) 
+        if ($this->first_name && $this->last_name)
         {
             return "{$this->first_name} {$this->last_name}";
         }
@@ -57,19 +59,19 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     # получить имя и фамилию, или логин
-    public function getNameOrUsername() 
+    public function getNameOrUsername()
     {
         return $this->getName() ?: $this->username;
     }
 
     # получить имя или логин
-    public function getFirstNameOrUsername() 
+    public function getFirstNameOrUsername()
     {
         return $this->first_name ?: $this->username;
     }
 
     # получить аватарку из Gravatar
-    public function getAvatarUrl() 
+    public function getAvatarUrl()
     {
         return "https://www.gravatar.com/avatar/{{ md5($this->email)?d=mp&s=40 }}";
     }
@@ -89,7 +91,7 @@ class User extends Authenticatable implements MustVerifyEmail
     # устанавливаем отношение многие ко многим, мои друзья
     public function friendsOfMine()
     {
-        return $this->belongsToMany('App\Models\User', 'friends', 'user_id', 'friend_id');    
+        return $this->belongsToMany('App\Models\User', 'friends', 'user_id', 'friend_id');
     }
 
     # устанавливаем отношение многие ко многим, друг

@@ -73,8 +73,11 @@
             </a>
             <div class="media-body">
 
-            @include('user.partials.username')
-            
+                <h4>
+                    <a href="{{ route ('profile.index',['username'=>$reply->user->username]) }}">{{ $reply->user->getNameOrUsername() }}</a>
+
+                </h4>
+
             <p>{{ $reply->body }}</p>
             <ul class="list-inline">
               @if ($reply->user->id !== Auth::user()->id)

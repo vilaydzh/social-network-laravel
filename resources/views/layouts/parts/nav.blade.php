@@ -36,6 +36,11 @@
             <i class="fas fa-user-friends"></i> Друзья
           </a>
         </li>
+          <li class="nav-item {{ Route::currentRouteNamed('chat.index') ? 'active' : '' }}">
+              <a class="nav-link" href="{{ route('chat.index') }}">
+                  <i class="fas fa-comments"></i> Сообщения
+              </a>
+          </li>
         <form method="GET" action="{{ route('search.results') }}"
               class="form-inline ml-2">
           <input type="search"
@@ -60,7 +65,7 @@
              data-toggle="dropdown"
              aria-haspopup="true"
              aria-expanded="false">
-            
+
             @if ( ! Auth::user()->avatar )
               <img src="{{ Auth::user()->getAvatarUrl() }}"
                    class="rounded-circle nav-avatar">
@@ -89,7 +94,7 @@
                         document.getElementById('logout-form').submit()">
               <i class="fas fa-sign-out-alt"></i> Выйти
             </a>
-            
+
             <form id="logout-form"
                   action="{{ route('logout') }}"
                   method="POST">
@@ -107,7 +112,7 @@
         </li>
       @endif
       </ul>
-      
+
     </div>
   </div>
 </nav>

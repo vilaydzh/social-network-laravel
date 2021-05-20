@@ -5,7 +5,7 @@
   <div class="col-lg-6">
 
     <h3>Результаты поиска: "{{ Request::input('query') }}"</h3>
-    
+
     @if ( ! $users->count() )
       <p>Пользователь не найден<p>
     @else
@@ -14,7 +14,7 @@
           @foreach ($users as $user)
             <div class="mb-2">
 
-              @include('user.partials.userblock')
+                @include('user.partials.userblock')
 
             </div>
           @endforeach
